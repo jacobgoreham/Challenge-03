@@ -86,3 +86,31 @@ function generatePassword() {
   }
   return password;
 }
+
+function getPrompts() {
+  choiceArr = [];
+
+  characterLength = parseInt(
+    prompt("How many characters would you like to use? Must be between 8-128")
+  );
+
+  if (isNaN(characterLength) || characterLength < 8 || characterLength > 128) {
+    alert("Must be between 8-128. Try again.");
+    return false;
+  }
+
+  if (confirm("Would you like Lowercase to be included?")) {
+    choiceArr = choiceArr.concat(lowerCaseArr);
+  }
+  if (confirm("Would you like Uppercase to be included?")) {
+    choiceArr = choiceArr.concat(upperCaseArr);
+  }
+  if (confirm("Would you like Symbols to be included?")) {
+    choiceArr = choiceArr.concat(symbolsArr);
+  }
+  if (confirm("Would you like Numbers to be included?")) {
+    choiceArr = choiceArr.concat(numbersArr);
+  }
+
+  return true;
+}
