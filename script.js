@@ -69,9 +69,12 @@ generateBtn.addEventListener("click", writePassword);
 function writePassword() {
   var correctPrompts = getPrompts(); //true or false
   var passwordText = document.querySelector("#password");
+  console.log(correctPrompts);
 
   if (correctPrompts) {
     var newPassword = generatePassword();
+    console.log(newPassword);
+
     passwordText.value = newPassword;
   } else {
     passwordText.value = "";
@@ -80,7 +83,7 @@ function writePassword() {
 
 function generatePassword() {
   var password = "";
-  for (var i = 0; i > characterLength; i++) {
+  for (var i = 0; i < characterLength; i++) {
     var randomIndex = Math.floor(Math.random() * choiceArr.length);
     password = password + choiceArr[randomIndex];
   }
